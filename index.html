@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gautam trader ™
-</title>
+    <title>Gautam trader ™</title>
     
+    <!-- Meta Pixel Base Code (Syntax Corrected) -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;_fbq.push=n;_fbq.loaded=!0;_fbq.version='2.0';
-    _fbq.queue=[];t=b.createElement(e);t.async=!0;
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
@@ -19,6 +19,11 @@
     fbq('init', '1806035330755205'); 
     fbq('track', 'PageView');
     </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=1806035330755205&ev=PageView&noscript=1"/>
+    </noscript>
+
     <style>
         * {
             margin: 0;
@@ -45,7 +50,6 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        /* Profile Image Border & Glowing Frame */
         .profile-img-box {
             width: 105px;
             height: 105px;
@@ -62,7 +66,6 @@
             object-fit: cover;
             display: block;
         }
-        /* Titles & Sub-headings */
         h1 {
             color: #eab308;
             font-size: 18px;
@@ -83,7 +86,6 @@
             letter-spacing: 0.5px;
             margin-bottom: 25px;
         }
-        /* CTA Button */
         .cta-btn {
             display: block;
             width: 100%;
@@ -103,7 +105,6 @@
         .cta-btn:active {
             transform: scale(0.98);
         }
-        /* Features List */
         .features-list {
             list-style: none;
             margin-bottom: 25px;
@@ -113,16 +114,14 @@
             font-size: 13px;
             margin-bottom: 8px;
         }
-        /* Disclaimer Text */
         .disclaimer {
             color: #64748b;
             font-size: 11px;
             line-height: 1.4;
             margin-bottom: 25px;
         }
-        /* Footer Tag */
         .managed-tag {
-            border: 1px solid #1e293b;
+            border: 1px solid #1e2836;
             border-radius: 10px;
             padding: 10px;
             color: #94a3b8;
@@ -138,12 +137,10 @@
 
     <div class="container">
         <div class="profile-img-box">
-            <img src="profile.png" alt="Gautam trader ™
-">
+            <img src="profile.png" alt="Gautam trader ™">
         </div>
 
-        <h1>Gautam trader ™
-</h1>
+        <h1>Gautam trader ™</h1>
         
         <div class="sub-title">Daily Market Updates</div>
         <div class="tags">NIFTY · BANKNIFTY · STOCK OPTIONS</div>
@@ -168,16 +165,17 @@
     </div>
 
     <script>
+        var hasTracked = false;
+        var telegramLink = "https://t.me/+5NTlFzjNzF5jNjE1";
+
         function redirectToTelegram() {
-            // 1. Fire Meta Lead Event
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead');
+            // 1. Fire 'Subscribe' Event Only Once per user click
+            if (!hasTracked && typeof fbq !== 'undefined') {
+                fbq('track', 'Subscribe');
+                hasTracked = true; // Duplicate trigger rokne ke liye
             }
 
-            // 2. Telegram Link Configured
-            var telegramLink = "https://t.me/+5NTlFzjNzF5jNjE1";
-
-            // 3. User Redirection
+            // 2. 300ms Delay to guarantee event delivery before navigation
             setTimeout(function() {
                 window.location.href = telegramLink;
             }, 300);
